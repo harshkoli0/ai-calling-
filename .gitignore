@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+
+# Gradio / Hugging Face
+gradio_cached_examples/
+flagged/
+
+# Temp files
+*.wav
+*.mp3
+tmp/
+
+# Editor
+.vscode/
+.idea/
+*.swp
