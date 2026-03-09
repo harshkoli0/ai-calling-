@@ -1,6 +1,8 @@
 import time
 import config
 
+BLUETOOTH_BUFFER_SIZE = 4096
+
 
 class BluetoothBridge:
     """Manages the Bluetooth connection between Phone A and Phone B."""
@@ -67,7 +69,7 @@ class BluetoothBridge:
             return b""
 
         try:
-            data = self.socket.recv(4096)
+            data = self.socket.recv(BLUETOOTH_BUFFER_SIZE)
             return data
         except Exception as e:
             print(f"[BT] Failed to receive audio: {e}")

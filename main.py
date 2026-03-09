@@ -171,8 +171,14 @@ with gr.Blocks(theme=gr.themes.Soft(), css=custom_css, title="AI Calling Agent")
         outputs=[chatbot, user_input],
     )
 
+    def clear_conversation():
+        global conversation_history, call_active
+        conversation_history = []
+        call_active = True
+        return [], ""
+
     clear_btn.click(
-        fn=lambda: ([], ""),
+        fn=clear_conversation,
         outputs=[chatbot, user_input],
     )
 

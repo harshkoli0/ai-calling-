@@ -9,6 +9,9 @@ from agent.prompts import SYSTEM_PROMPT
 # Phrases that signal the caller wants to end the call
 END_CALL_PHRASES = ("goodbye", "bye", "end call", "hang up", "talk later")
 
+# Number of recent messages sent to the LLM as context
+HISTORY_LIMIT = 6
+
 
 class AgentState(TypedDict):
     user_input: str
@@ -39,7 +42,7 @@ def think_node(state: AgentState) -> AgentState:
         history = state.get("conversation_history", [])
 
         messages = [SystemMessage(content=SYSTEM_PROMPT)]
-        for entry in history[-6:]:
+        for entry in history[-HISTORY_LIMIT:]:
             if entry["role"] == "user":
                 messages.append(HumanMessage(content=entry["content"]))
             elif entry["role"] == "assistant":
