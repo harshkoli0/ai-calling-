@@ -1,0 +1,7 @@
+.env
+myenv/
+venv/
+__pycache__/
+*.pyc
+customer_memory.json
+.ipynb_checkpoints/
